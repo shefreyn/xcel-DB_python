@@ -19,6 +19,7 @@ print(xcelFile.ws(ws='Sheet1').address(address='A4'),"with ID",xcelFile.ws(ws='S
 #Database connector
 dataBase = mysql.connector.connect(
     host="localhost",
+    database="excelread_py",
     user="pma",
     password="123456"
 )
@@ -36,9 +37,9 @@ id3 = xcelFile.ws(ws='Sheet1').address(address='B4')
 
 #using db cursor and storing it to a variable 'mycursor'
 mycursor = dataBase.cursor()
-
-#executing db commands via the velow funcion
-print(f"INSERT INTO data_id (NAME, ID) VALUES ('{name1}',{id1});")
-
 mycursor.execute(f"INSERT INTO data_id (NAME, ID) VALUES ('{name1}',{id1});")
+#executing db commands via the velow funcion
+
+
+
 
