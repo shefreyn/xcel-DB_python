@@ -35,7 +35,10 @@ id2 = xcelFile.ws(ws='Sheet1').address(address='B3')
 id3 = xcelFile.ws(ws='Sheet1').address(address='B4')
 
 #using db cursor and storing it to a variable 'mycursor'
-mycursor = mydb.cursor()
+mycursor = dataBase.cursor()
 
 #executing db commands via the velow funcion
-mycursor.execute("INSERT INTO data_id (Name, ID) VALUES ('",name1,"'",",",id1,");"
+print(f"INSERT INTO data_id (NAME, ID) VALUES ('{name1}',{id1});")
+
+mycursor.execute(f"INSERT INTO data_id (NAME, ID) VALUES ('{name1}',{id1});")
+
