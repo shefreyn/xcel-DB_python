@@ -23,3 +23,19 @@ dataBase = mysql.connector.connect(
     password="123456"
 )
 print(dataBase)
+
+#storing Name_values extracted from excel to a py variable
+name1 = xcelFile.ws(ws='Sheet1').address(address='A2')
+name2 = xcelFile.ws(ws='Sheet1').address(address='A3')
+name3 = xcelFile.ws(ws='Sheet1').address(address='A4')
+
+#storing ID_values extracted from excel to a py variable
+id1 = xcelFile.ws(ws='Sheet1').address(address='B2')
+id2 = xcelFile.ws(ws='Sheet1').address(address='B3')
+id3 = xcelFile.ws(ws='Sheet1').address(address='B4')
+
+#using db cursor and storing it to a variable 'mycursor'
+mycursor = mydb.cursor()
+
+#executing db commands via the velow funcion
+mycursor.execute("INSERT INTO data_id (Name, ID) VALUES ('",name1,"'",",",id1,");"
